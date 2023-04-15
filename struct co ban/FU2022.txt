@@ -1,0 +1,7 @@
+
+Tong sach hien co: 2
+
+		DANH SACH
+|Ten sach                      |Tac gia                       |Nam XB    |Gia ban   |
+|C_Programming_Language        |Dennis_Ritchie                |1988      |59000.00  |
+|Programming_in_ANSI_C         |Balagurusamy                  |2012      |600000.00 |
