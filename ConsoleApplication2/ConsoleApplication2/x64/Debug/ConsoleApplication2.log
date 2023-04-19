@@ -1,0 +1,13 @@
+﻿  dlinkedlist.cpp
+  integer.cpp
+  main.cpp
+C:\New folder\ConsoleApplication2\ConsoleApplication2\list-SPYAlexander-main\main.cpp(39,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\New folder\ConsoleApplication2\ConsoleApplication2\list-SPYAlexander-main\main.cpp(268,13): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\New folder\ConsoleApplication2\ConsoleApplication2\list-SPYAlexander-main\main.cpp(296,41): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\New folder\ConsoleApplication2\ConsoleApplication2\list-SPYAlexander-main\main.cpp(494): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\New folder\ConsoleApplication2\ConsoleApplication2\list-SPYAlexander-main\main.cpp(525,37): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  sorted_double_linked_list.cpp
+  vsarray.cpp
+  Generating Code...
+C:\New folder\ConsoleApplication2\ConsoleApplication2\list-SPYAlexander-main\dlinkedlist.cpp(14): warning C4172: returning address of local variable or temporary: tempt
+  ConsoleApplication2.vcxproj -> C:\New folder\ConsoleApplication2\x64\Debug\ConsoleApplication2.exe
