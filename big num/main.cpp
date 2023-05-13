@@ -1,11 +1,12 @@
 #include <iostream>
 #include <string>
-
+#include <vector>
+#include <fstream>
 using namespace std;
 
 class BigInteger
 {
-public:
+public: // +, -, *, /, %
     string value;
     BigInteger()
     {
@@ -75,27 +76,18 @@ public:
 
         a = a.Reverse();
         b = b.Reverse();
-        BigInteger c = a;
-        // cout << c << endl;
-        int d;
-        for (int i = 0; i < b.value.size(); i++)
+
+        BigInteger c;
+        int d = 0;
+        for (int i = 0; i < a.value.size(); i++)
         {
-            c.value[i] += b.value[i] - 48;
-            int j = i;
-            while (c.value[j] > '9')
-            {
-                c.value[j] -= 10;
-                if (j + 1 < c.value.size())
-                {
-                    c.value[j + 1] += 1;
-                    j++;
-                }
-                else
-                {
-                    c.value.push_back('1');
-                }
-            }
+            int di2 = i < b.value.size() ? b.value[i] - 48 : 0;
+            int sum = a.value[i] - 48 + di2 + d;
+            d = sum > 9 ? 1 : 0;
+            c.value.push_back(sum % 10 + 48);
         }
+        if (d > 0)
+            c.value.push_back(d + 48);
         return c.Reverse();
     }
     BigInteger operator-(const BigInteger &x)
@@ -172,30 +164,19 @@ public:
             return -(a * x);
         }
         a = a.Reverse();
+
         BigInteger c;
-        c.value = "0";
-        // c.value.push_back((a.value[0] - 48) * x + 48);
+        int d = 0;
         for (int i = 0; i < a.value.size(); i++)
         {
-            c.value[i] += (a.value[i] - 48) * x;
-            if (c.value[i] > '9')
-            {
-                int d = (c.value[i] - 48) / 10;
-                // cout << d << endl;
-                c.value[i] = (c.value[i] - 48) % 10 + 48;
-                if (i + 1 < c.value.size())
-                    c.value[i + 1] += d;
-                else
-                    c.value.push_back(d + 48);
-            }
-            else
-                c.value.push_back(48);
-            // cout << c << endl;
+            int di = a.value[i] - 48;
+            int sum = di * x + d;
+            d = sum > 9 ? sum / 10 : 0;
+            c.value.push_back(sum % 10 + 48);
         }
-        // if(c)
+        if (d > 0)
+            c.value.push_back(d + 48);
         c = c.Reverse();
-        while (c.value[0] == '0')
-            c.value.erase(0, 1);
         return c;
     }
     BigInteger operator*(const BigInteger &x)
@@ -226,7 +207,6 @@ public:
         for (int i = 0; i < b.value.size(); i++)
         {
             BigInteger y = a * (b.value[i] - 48);
-            // cout << c << " " << y << endl;
             for (int j = 0; j < d; j++)
                 y.value.push_back('0');
             d++;
@@ -248,14 +228,16 @@ public:
             return *this;
         while (a >= b)
         {
-            // cout << a << " " << b << endl;
             a = a - b;
             c = c + d;
-            // cout << a << " " << b << " " << c << endl
-            //      << endl;
-            // system("pause");
         }
         return c;
+    }
+    BigInteger operator%(const BigInteger &x)
+    {
+        BigInteger c, a = *this;
+        c = a / x;
+        return a - c;
     }
     BigInteger operator-()
     {
@@ -291,8 +273,30 @@ public:
             this->value = this->value.substr(1);
     }
 };
+void Quiz(string s)
+{
+    ifstream in(s.c_str());
+    int n = 0;
+    vector<BigInteger> a;
+    BigInteger x;
+    BigInteger sum;
+    while (in >> x)
+    {
+        n++;
+        a.push_back(x);
+        sum = sum + x;
+    }
+    cout << sum << endl
+         << endl;
+    cout << sum * a[0] << endl
+         << endl;
+    cout << sum * a[a.size() - 1] << endl
+         << endl;
+    cout << a.size();
+}
 int main()
 {
+
     BigInteger a, b;
     while (true)
     {
@@ -301,11 +305,6 @@ int main()
             return 0;
         cout << a / b << endl;
     }
-    // cin >> a >> b;
-    // cout << a << " + " << b << " = " << a + b << endl;
-    // cout << a << " - " << b << " = " << a - b << endl;
-    // // cout << a * 2;
-    // cout << a << " * " << b << " = " << a * b << endl;
-    // cout << a << " / " << b << " = " << a / b << endl;
+    // Quiz("input.txt");
     return 0;
 }
