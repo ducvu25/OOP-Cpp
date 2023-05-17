@@ -1,0 +1,9 @@
+﻿  BigInteger.cpp
+D:\Hoc tap\C++\OOP\big num\Caculator\BigInteger.cpp(298,5): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\Hoc tap\C++\OOP\big num\Caculator\BigInteger.cpp(375,5): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  Caculator.cpp
+D:\Hoc tap\C++\OOP\big num\Caculator\RomanNumber.h(25,9): warning C4244: 'initializing': conversion from 'const double' to 'int', possible loss of data
+  RomanNumber.cpp
+D:\Hoc tap\C++\OOP\big num\Caculator\RomanNumber.h(25,9): warning C4244: 'initializing': conversion from 'const double' to 'int', possible loss of data
+  Generating Code...
+  Caculator.vcxproj -> D:\Hoc tap\C++\BTL\BK HCM Thanh guom trong da 2\A2_initial (1)\__MACOSX\ConsoleApplication1\x64\Debug\Caculator.exe
